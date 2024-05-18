@@ -28,7 +28,7 @@ def download_audio(url):
 
     # Download the highest quality audio stream
     audio_stream = yt.streams.get_by_itag(itag)
-    audio_stream.download(output_path=DOWNLOAD_FOLDER, filename='highest_quality_audio.mp3')
+    audio_stream.download(output_path=DOWNLOAD_FOLDER, filename='highest_quality_audio.mp4')
 
 @app.route('/')
 def index():
@@ -38,7 +38,7 @@ def index():
 def download():
     url = request.form['url']
     download_audio(url)
-    return send_from_directory(DOWNLOAD_FOLDER, 'highest_quality_audio.mp3', as_attachment=True)
+    return send_from_directory(DOWNLOAD_FOLDER, 'highest_quality_audio.mp4', as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
